@@ -13,6 +13,8 @@ vector
 -
 cassert
 -
+cstdlib
+-
 net.hpp
 /Users/eugenebaek/Documents/Projects/C++/NeuralNetwork/net.hpp
 trainingDriver.hpp

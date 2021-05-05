@@ -55,6 +55,7 @@ void Net::backPropagate(const std::vector<double> &target_values) {
     //Calculate overall net error (RMS -Root Mean Square of output neuron errors)
     Layer &output_layer = m_layers.back();
     m_error = 0.0;
+
     for (unsigned neuron_num = 0; neuron_num < output_layer.size() - 1; neuron_num++) {
         //difference (delta) is the target (actual value) - the output value
         double delta = target_values[neuron_num] - output_layer[neuron_num].getOutputValue();
@@ -90,7 +91,7 @@ void Net::backPropagate(const std::vector<double> &target_values) {
         Layer &curr_layer = m_layers[layer_num];
         Layer &prev_layer = m_layers[layer_num - 1];
 
-        for (unsigned neuron_num = 0; neuron_num < m_layers.size() - 1; neuron_num++) {
+        for (unsigned neuron_num = 0; neuron_num < curr_layer.size() - 1; neuron_num++) {
             curr_layer[neuron_num].updateInputWeight(prev_layer);
         }
     }

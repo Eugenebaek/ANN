@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <cstdlib>
 
 #include "net.hpp"
 #include "trainingDriver.hpp"
@@ -18,7 +19,8 @@ void showVectorValues(std::string label, std::vector<double> &v)
 
 int main() {
 
-    TrainingDriver trainData("trainingData.txt");
+    const char* env_p = std::getenv("DATA_PATH");
+    TrainingDriver trainData(env_p);
 
     //number of layers and number of neurons per layer in neural net passed into myNet object through topology
     // e.g., { 3, 2, 1 }
